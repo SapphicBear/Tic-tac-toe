@@ -5,6 +5,58 @@
 
 }
 body {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 1rem;
+    background: rgb(118, 119, 126);
+}
+body,
+button {
     padding: 0;
     margin: 0;
+}
+
+button {
+    padding: 0.5rem;
+    width: 100px;
+    border-style: none;
+    font-family: inherit;
+    font-weight: 700;
+    color: white;
+    background: rgb(53, 88, 88);
+    border-radius: 10px;
+    box-shadow: rgb(126, 76, 76) 0 4px 4px;
+}
+
+button:hover {
+    background: rgba(255, 55, 55, 0.274);
+}
+button:active {
+    background: rgba(39, 187, 167, 0.815);
+    box-shadow: inset 0px 0px 10px 2px rgba(6, 5, 80, 0.322);
+}
+
+
+.head,
+.container {
+    margin-top: 0.5rem;
+    display: grid;
+    grid-auto-flow: row;
+    padding: 1rem;
+    background: rgb(255, 141, 141);
+    border-radius: 10px;
+    box-shadow: rgb(102, 38, 38) 0 4px 4px;
+    color: rgb(255, 243, 225);
+    width: 50%;
+    justify-self: center;
+    
+}
+h1,
+.button-area {
+    place-self: center;
+}
+
+.container {
+    min-height: 62vh;
+    margin-top: 0;
 }

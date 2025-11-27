@@ -26,14 +26,14 @@ button {
     background: rgb(53, 88, 88);
     border-radius: 10px;
     box-shadow: rgb(126, 76, 76) 0 4px 4px;
-}
 
-button:hover {
-    background: rgba(255, 55, 55, 0.274);
-}
-button:active {
-    background: rgba(39, 187, 167, 0.815);
-    box-shadow: inset 0px 0px 10px 2px rgba(6, 5, 80, 0.322);
+    &:hover {
+        background: rgba(255, 55, 55, 0.274);
+    };
+    &:active {
+        background: rgba(39, 187, 167, 0.815);
+        box-shadow: inset 0px 0px 10px 2px rgba(6, 5, 80, 0.322);
+    };
 }
 
 .head {
@@ -70,4 +70,11 @@ h1,
 .square {
     background: white;
     border-radius: 10px;
+
+    &:hover {
+        background: rgb(255, 199, 199);
+    };
+    &:active {
+        background: rgb(154, 154, 255);
+    };
 }

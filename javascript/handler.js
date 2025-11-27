@@ -10,8 +10,8 @@ function newGame() {
     return { addScore, subScore };
 }
 
-function test() {
-    console.log("click!");
+function playGame() {
+    
 }
 
-export { newGame, test };
+export { newGame, playGame };

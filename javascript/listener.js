@@ -7,4 +7,10 @@ function resetButton(DOM, handler) {
     DOM.resetButton.addEventListener("click", handler);
 }
 
-export { newButton, resetButton };
+function squares(DOM, handler) {
+    DOM.squares.forEach((item) => {
+        item.addEventListener("click", handler);
+    })
+}
+
+export { newButton, resetButton, squares };

@@ -9,14 +9,13 @@ function Player(name, tile) {
         this.tile = "X";
             }
         };
-    this.markSquare = function (array, row, col) {
-            array[row][col] = this.tile;
+    this.markSquare = function (array, square) {
+            array[square] = this.tile;
         };
     };
 Player.prototype.humanMove = function (array) {
-    let row = prompt("Which row?", "");
-    let col = prompt("Which column?", "")
-    this.markSquare(array, row, col);
+    let square = prompt("Choose where to mark!", "");
+    this.markSquare(array, square);
 }
 
 Player.prototype.computerMove = function (array) {

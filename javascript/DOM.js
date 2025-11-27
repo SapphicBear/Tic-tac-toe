@@ -4,6 +4,7 @@ function cacheDOM() {
     DOM.newGameButton = document.querySelector("#new-game");
     DOM.resetButton = document.querySelector("#reset");
     DOM.container = document.querySelector(".container");
+    DOM.squares = document.querySelectorAll(".square");
     console.log("DOM-Cached!")
     return DOM;
 };

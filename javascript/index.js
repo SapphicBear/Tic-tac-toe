@@ -1,5 +1,4 @@
 import * as com from "./combine.js";
-import { squareHandler } from "./handler.js";
 
 
 

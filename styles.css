@@ -2,14 +2,26 @@
     box-sizing: border-box;
     line-height: 1.5;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    --dark-blue: #313647;
+    --light-blue: #435663;
+    --light-green: #A3B087;
+    --white: #FFF8D4;
 
 }
 body {
     display: grid;
     grid-auto-flow: row;
     gap: 1rem;
-    background: rgb(118, 119, 126);
+    background: linear-gradient(var(--dark-blue), var(--light-blue));
+    background-size: 100% 200%;
+
 }
+button, 
+.container,
+header {
+    box-shadow: rgba(12, 33, 48, 0.329) 0 4px 4px;;
+}
+
 body,
 button {
     padding: 0;
@@ -22,17 +34,16 @@ button {
     border-style: none;
     font-family: inherit;
     font-weight: 700;
-    color: white;
-    background: rgb(53, 88, 88);
+    color: var(--white);
+    background: var(--light-green);
     border-radius: 10px;
-    box-shadow: rgb(126, 76, 76) 0 4px 4px;
 
     &:hover {
-        background: rgba(255, 55, 55, 0.274);
+        background: rgba(135, 255, 119, 0.274);
     };
     &:active {
-        background: rgba(39, 187, 167, 0.815);
-        box-shadow: inset 0px 0px 10px 2px rgba(6, 5, 80, 0.322);
+        background: rgba(97, 209, 253, 0.815);
+        box-shadow: inset 0px 0px 10px 2px rgba(5, 80, 74, 0.322);
     };
 }
 
@@ -45,10 +56,9 @@ button {
 .container {
     margin-top: 0.5rem;
     padding: 1rem;
-    background: rgb(255, 141, 141);
+    background: var(--light-blue);
     border-radius: 10px;
-    box-shadow: rgb(102, 38, 38) 0 4px 4px;
-    color: rgb(255, 243, 225);
+    color: var(--white);
     max-width: 400px;
     justify-self: center;
     
@@ -68,11 +78,11 @@ h1,
 }
 
 .square {
-    background: white;
+    background: var(--white);
     border-radius: 10px;
 
     &:hover {
-        background: rgb(255, 199, 199);
+        background: var(--light-green);
     };
     &:active {
         background: rgb(154, 154, 255);

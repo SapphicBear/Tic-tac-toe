@@ -1,4 +1,5 @@
 import * as com from "./combine.js";
+import { squareHandler } from "./handler.js";
 
 
 
@@ -7,16 +8,17 @@ import * as com from "./combine.js";
     const DOM = com.DOM.cacheDOM();
 
     // Buttons listener
-    com.listener.newButton(DOM, () => {
-        console.log("New button!");
+
+    com.listener.newButton(DOM, function () {
+        com.hand.newGame(com.player, com.game.gameBoard);
+});
+    com.listener.resetButton(DOM, function () {
+        com.hand.resetGame(com.game.gameBoard);
     });
-    com.listener.resetButton(DOM, () => {
-        console.log("Reset Button!");
-    })
     // Square listener!
-    com.listener.squares(DOM, () => {
-        console.log("Click!");
-    })
+    com.listener.squares(DOM, function () {
+        com.hand.squareHandler(com.player, com.game);
+});
 
     // game-area
    

@@ -13,9 +13,9 @@ function Player(name, tile) {
             array[square] = this.tile;
         };
     };
-Player.prototype.humanMove = function (array) {
-    let square = prompt("Choose where to mark!", "");
-    this.markSquare(array, square);
+Player.prototype.humanMove = function (array, square) {
+    
+        array[square] = this.tile;
 }
 
 Player.prototype.computerMove = function (array) {

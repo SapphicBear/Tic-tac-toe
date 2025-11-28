@@ -79,6 +79,7 @@ h1,
 
 .square {
     background: var(--white);
+    position: relative;
     border-radius: 10px;
 
     &:hover {
@@ -87,4 +88,12 @@ h1,
     &:active {
         background: rgb(154, 154, 255);
     };
+}
+
+.tile {
+    color: red;
+    font-weight: 800;
+    font-size: 100px;
+    position: absolute;
+    top: -82px;
 }

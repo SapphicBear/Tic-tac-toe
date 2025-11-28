@@ -6,9 +6,11 @@ function resetButton(DOM, handler) {
     DOM.resetButton.addEventListener("click", handler)
 }
 
-function squares(DOM, handler) {
+function squares(DOM, game, player, handler) {
     DOM.squares.forEach((item) => {
-        item.addEventListener("click", handler)
+        item.addEventListener("click", function () {
+            handler(item, player, game, DOM);
+        });
     });
 };
 

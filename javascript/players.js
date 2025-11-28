@@ -22,16 +22,14 @@ Player.prototype.computerMove = function (array) {
             let moveChance = true;
             let i = 0;
             while(moveChance === true || i === 20) {
-                let row = Math.floor(Math.random() * 3);
+                let row = Math.floor(Math.random() * array.length);
                 console.log(row);
-                let col = Math.floor(Math.random() * 3);
-                console.log(col);
-                if (array[row][col] === "") {
-                    array[row][col] = this.tile;
+                if (array[row] === "") {
+                    array[row] = this.tile;
                     moveChance = false;
+                    break;
                 } else {
                     i++;
-                    console.log(i);
                 }
             }
         };
@@ -41,6 +39,8 @@ function createPlayers() {
         humanPlayer = new Player(prompt("Please enter your name:", ""), prompt("Do you want Xs or Os?", ""));
         computerPlayer = new Player("CPU");
         computerPlayer.checkTile(humanPlayer.tile);
+        console.log(humanPlayer.tile);
+        console.log(computerPlayer.tile);
     };
 
 export { createPlayers, humanPlayer, computerPlayer };

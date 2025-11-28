@@ -14,15 +14,38 @@ const gameBoard = {
             [0, 4, 8],
             [2, 4, 6]
         ],
-        tiles: ["X", "O"],
         round: 0,
         xWins: 0,
         oWins: 0,
         winner: "",
         running: false,
+        humanTurn: false,
+        cpuTurn: false,
+
+        getStartingPlayer() {
+            let humanChance = Math.floor(Math.random() * 6);
+            console.log(humanChance);
+            let cpuChance = Math.floor(Math.random() * 6);
+            console.log(cpuChance);
+            if (humanChance > cpuChance) {
+                this.humanTurn = true;
+                this.cpuTurn = false;
+                console.log("You go first!");
+            } else if (humanChance < cpuChance) {
+                this.humanTurn = false;
+                this.cpuTurn = true;
+                console.log("computer goes first!");
+            } else {
+                this.humanTurn = true;
+                this.cpuTurn = false;
+                console.log("Tie, you go first!");
+            }
+
+        },
 
         startGame() {
             this.running = true;
+            this.getStartingPlayer();
             this.winner = "";
             this.xWins = 0;
             this.oWins = 0;
@@ -30,18 +53,38 @@ const gameBoard = {
         },
         restartGame() {
             this.board = ["", "", "", "", "", "", "", "", ""];
-            running = true;
+            this.startGame();
+           },
+
+        computerMove(player, DOM) {
+            if (this.cpuTurn == true) {
+                let moveChance = true;
+                while (moveChance == true) {
+                    let num = Math.floor(Math.random() * this.board.length);
+                    console.log(num);
+                        if (this.board[num] === "") {
+                            this.board[num] = player.computerPlayer.tile;
+                            DOM.tiles[num].textContent = player.computerPlayer.tile;
+                            moveChance = false;
+                        }
+                }
+            } else {
+                return false;
+            }
+        },
+        endTurn() {
+            if (this.cpuTurn == true && this.humanTurn == false) {
+                this.cpuTurn = false;
+                this.humanTurn = true;
+            } else if (this.cpuTurn == false && this.humanTurn == true) {
+                this.cpuTurn = true;
+                this.humanTurn = false;
+            } else {
+                throw new Error("Something went wrong with the endturn function!");
+            }
         },
 
-        playRound(humanTurn, cpuTurn) {
-            while (this.running === true) {
-                humanTurn;
-                cpuTurn;
-                this.checkWinner();
-            } 
-        },
-
-        checkWinner() {
+        checkWinner(player) {
             let roundWon = false;
             for (let i = 0; i < this.winConditions.length; i++) {
                 const conditions = this.winConditions[i];
@@ -54,10 +97,16 @@ const gameBoard = {
                 }
                 if (squareA == squareB && squareB == squareC) {
                     roundWon = true;
+                    if (squareA == player.humanPlayer.tile) {
+                    this.winner = player.humanPlayer.name;
+                } else {
+                    this.winner = player.computerPlayer.name;
+                }
                     break;
                 }
             }
             if (roundWon) {
+                
                 console.log(`${this.winner} wins!`);
                 this.running = false;
             }

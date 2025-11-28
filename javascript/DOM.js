@@ -5,6 +5,7 @@ function cacheDOM() {
     DOM.resetButton = document.querySelector("#reset");
     DOM.container = document.querySelector(".container");
     DOM.squares = document.querySelectorAll(".square");
+    DOM.tiles = document.querySelectorAll(".tile");
     console.log("DOM-Cached!")
     return DOM;
 };

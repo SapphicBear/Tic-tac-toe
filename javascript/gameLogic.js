@@ -61,7 +61,7 @@ const gameBoard = {
            },
 
         computerMove(player, DOM) {
-            if (this.cpuTurn == true && this.running == true) {
+            if (this.cpuTurn == true && this.running == true && this.board.includes("")) {
                 let moveChance = true;
                 while (moveChance == true) {
                     let num = Math.floor(Math.random() * this.board.length);

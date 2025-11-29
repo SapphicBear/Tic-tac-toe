@@ -71,7 +71,7 @@ function gameHandler(player, game, DOM) {
             } else if (game.gameBoard.humanWins < game.gameBoard.cpuWins) {
                 DOM.info.textContent = `${player.computerPlayer.name} wins! Final Score: ${game.gameBoard.cpuWins} to ${game.gameBoard.humanWins}!`
             } else {
-                DOM.info.textContent = `It's a draw! ${game.gameBoard.humanWins} to ${game.gameBoard.cpuWins}!`
+                DOM.info.textContent = `Game Over! It's a draw! ${game.gameBoard.humanWins} to ${game.gameBoard.cpuWins}!`
             }
         } else {
             if (game.gameBoard.winner === "draw") {

@@ -118,6 +118,9 @@ h1,
 }
 
 .square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: var(--white);
     position: relative;
     border-radius: 10px;
@@ -132,10 +135,10 @@ h1,
 
 .tile {
     color: red;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 100px;
-    position: absolute;
-    top: -82px;
+    
+    
 }
 
 .player-input:open {

@@ -15,12 +15,13 @@ const gameBoard = {
             [2, 4, 6]
         ],
         round: 0,
-        xWins: 0,
-        oWins: 0,
+        maxRound: 3,
         winner: "",
         running: false,
         humanTurn: false,
         cpuTurn: false,
+        humanWins: 0,
+        cpuWins: 0,
 
         getStartingPlayer() {
             let humanChance = Math.floor(Math.random() * 6);
@@ -44,20 +45,23 @@ const gameBoard = {
         },
 
         startGame() {
+            this.board = ["", "", "", "", "", "", "", "", ""];
             this.running = true;
             this.getStartingPlayer();
             this.winner = "";
-            this.xWins = 0;
-            this.oWins = 0;
             this.round = 0;
+            this.humanWins = 0;
+            this.cpuWins = 0;
         },
-        restartGame() {
+        nextRound() {
             this.board = ["", "", "", "", "", "", "", "", ""];
-            this.startGame();
+            this.running = true;
+            this.getStartingPlayer();
+            this.winner = "";
            },
 
         computerMove(player, DOM) {
-            if (this.cpuTurn == true) {
+            if (this.cpuTurn == true && this.running == true) {
                 let moveChance = true;
                 while (moveChance == true) {
                     let num = Math.floor(Math.random() * this.board.length);
@@ -95,23 +99,32 @@ const gameBoard = {
                 if (squareA === "" || squareB === "" || squareC === "") {
                     continue;
                 }
+                
                 if (squareA == squareB && squareB == squareC) {
                     roundWon = true;
                     if (squareA == player.humanPlayer.tile) {
                     this.winner = player.humanPlayer.name;
-                } else {
+                    this.humanWins++;
+                }   else if (squareA == player.computerPlayer.tile) {
                     this.winner = player.computerPlayer.name;
-                }
+                    this.cpuWins++;
                     break;
-                }
-            }
-            if (roundWon) {
+            } 
+    }
+}
+    if (roundWon) {
                 
                 console.log(`${this.winner} wins!`);
+                this.round++;
+                this.running = false;
+            } else if (!this.board.includes("")) {
+                this.winner = "draw";
+                this.cpuWins++;
+                this.humanWins++;
+                this.round++;
                 this.running = false;
             }
-            
-        }
+}
 };
 
     export { gameBoard };

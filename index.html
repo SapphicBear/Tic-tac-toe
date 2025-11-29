@@ -8,14 +8,25 @@
     <script src="./javascript/index.js" type="module"></script>
 </head>
 <body>
+    <dialog class="player-input">
+        <p>New game!</p>
+        <form class="create-player">
+            <label for="username">Please enter your name!</label>
+            <input type="text" name="username" id="username" autofocus required>
+        </form>
+        <div class="area">
+        <button class="start-button" type="button">Start!</button>
+        <button class="cancel-button" type="button">Cancel!</button>
+        </div>
+    </dialog>
     <header class="head">
         <h1>Tic Tac Toe!</h1>
         <div class="button-area">
             <button id="new-game">New Game</button>
-            <button id="reset">Reset</button>
+            <button id="next-round">Next Round</button>
         </div>
     </header>
-    
+    <div class="game-info"></div>
     <div class="container">
         <div class="square 0"><h1 class="tile"></h1></div>
         <div class="square 1"><h1 class="tile"></h1></div>
@@ -26,9 +37,6 @@
         <div class="square 6"><h1 class="tile"></h1></div>
         <div class="square 7"><h1 class="tile"></h1></div>
         <div class="square 8"><h1 class="tile"></h1></div>
-
-
-
     </div>
     
 </body>

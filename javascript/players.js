@@ -35,8 +35,8 @@ Player.prototype.computerMove = function (array) {
         };
         let humanPlayer;
         let computerPlayer;
-function createPlayers() {
-        humanPlayer = new Player(prompt("Please enter your name:", ""), prompt("Do you want Xs or Os?", ""));
+function createPlayers(name, tile) {
+        humanPlayer = new Player(name, tile);
         computerPlayer = new Player("CPU");
         computerPlayer.checkTile(humanPlayer.tile);
         console.log(humanPlayer.tile);

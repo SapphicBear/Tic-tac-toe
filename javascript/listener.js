@@ -1,9 +1,20 @@
-function newButton(DOM, handler) {
-    DOM.newGameButton.addEventListener("click", handler);
+function newButton(DOM) {
+    DOM.newGameButton.addEventListener("click", function () {
+        DOM.dialog.showModal();
+    });
 }
 
-function resetButton(DOM, handler) {
-    DOM.resetButton.addEventListener("click", handler)
+function dialogStartButton(DOM, handler) {
+    DOM.dialog.start.addEventListener("click", handler);
+}
+
+function dialogCancelButton(DOM, handler) {
+    DOM.dialog.cancel.addEventListener("click", handler);
+}
+
+
+function nextRoundButton(DOM, handler) {
+    DOM.nextRoundButton.addEventListener("click", handler)
 }
 
 function squares(DOM, game, player, handler) {
@@ -14,4 +25,4 @@ function squares(DOM, game, player, handler) {
     });
 };
 
-export { newButton, resetButton, squares };
+export { newButton, nextRoundButton, squares, dialogStartButton, dialogCancelButton };

@@ -8,6 +8,15 @@
     --white: #FFF8D4;
 
 }
+
+form, 
+dialog {
+    padding: 0;
+    margin: 0;
+    border-style: none;
+    font-family: inherit;
+}
+
 body {
     display: grid;
     grid-auto-flow: row;
@@ -18,7 +27,8 @@ body {
 }
 button, 
 .container,
-header {
+header,
+.game-info {
     box-shadow: rgba(12, 33, 48, 0.329) 0 4px 4px;;
 }
 
@@ -53,7 +63,8 @@ button {
 }
 
 .head,
-.container {
+.container,
+.game-info {
     margin-top: 0.5rem;
     padding: 1rem;
     background: var(--light-blue);
@@ -61,7 +72,13 @@ button {
     color: var(--white);
     max-width: 400px;
     justify-self: center;
-    
+}
+.game-info {
+    margin-top: 0;
+    font-weight: 700;
+    min-width: 400px;
+    text-align: center;
+    min-height: 2.8ch;
 }
 h1,
 .button-area {
@@ -96,4 +113,16 @@ h1,
     font-size: 100px;
     position: absolute;
     top: -82px;
+}
+
+.player-input:open {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 1rem;
+    border-radius: 10px;
+    background-color: var(--light-blue);
+    color: var(--white);
+    padding: 1rem;
+    justify-items: center;
+    place-self: center;
 }

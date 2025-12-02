@@ -59,7 +59,7 @@ function gameHandler(player, game, DOM) {
         DOM.info.textContent = "Start a new game!";
     }
     if (game.gameBoard.cpuTurn == true) {
-        game.gameBoard.cpuChoice(player, DOM);
+        game.gameBoard.cpuChoice(player, DOM); // new choice for blockChance
         game.gameBoard.cpuTurn = false;
         game.gameBoard.humanTurn = true;
     } 

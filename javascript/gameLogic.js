@@ -124,7 +124,53 @@ const gameBoard = {
                 this.round++;
                 this.running = false;
             }
-}
+},
+    cpuChoice(player, DOM) {
+        let random = Math.floor(Math.random() * 20) 
+        if (random >= 14) {
+            this.cpuBlock(player, DOM);
+        } else {
+            this.computerMove(player, DOM);
+        }
+    },
+
+    //Maybe a way to make the AI of the CPU work harder to win? 
+    // Roll a roll, 50% chance to actively block the player's move?
+
+    cpuBlock(player, DOM) {
+        if (!this.board.includes(player.humanPlayer.tile) || !this.board.includes(player.computerPlayer.tile)) {
+            console.log("Cant block when there are no tiles!");
+            return;
+        } else {
+            let blockChance = true;
+            console.log("block chance triggered!");
+                while (blockChance == true) {
+                    let moves = this.board.map((item) => {
+                        if (item === player.humanPlayer.tile) {
+                            return this.board.indexOf(item);
+                            }
+                        });
+            console.log(moves.length);
+                let choice = Math.floor(Math.random() * moves.length) + 1;
+                if (choice === 8) {
+                    continue;
+                } else {
+                    if (this.board[choice] === player.humanPlayer.tile) {
+                        break;
+                    } else {
+                        console.log("you were blocked here: " + this.board[choice])
+                        this.board[choice] = player.computerPlayer.tile;
+                        DOM.tiles[choice].textContent = player.computerPlayer.tile;
+                        console.log("You were blocked!");
+                        blockChance = false;
+                    }
+                    
+                            
+                }
+            }
+        } 
+        
+    },
 };
 
     export { gameBoard };
